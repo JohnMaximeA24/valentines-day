@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi El Louise Selfaison </title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Will you be my Valentine? </h1>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img id="slide" src="images/slide1.jpg" alt="Slideshow image">
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <button id="yesBtn" onclick="sayYes()">Yes </button>
+    <button id="noBtn" onclick="sayNo()">No </button>
+  </div>
+
+  <!-- Optional link -->
+  <a href="https://open.spotify.com/track/4t9PBD27dndlf6YMBK2ROc" target="_blank">
+     A song that reminds me of you
+  </a>
+
+  <script>
+    // Slideshow images
+    const images = [
+      "images/slide1.jpg",
+      "images/slide2.jpg",
+      "images/slide3.jpg"
+    ];
+
+    let index = 0;
+    const slide = document.getElementById("slide");
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      slide.src = images[index];
+    }, 2500);
+
+    // Button logic
+    let yesSize = 20;
+
+    function sayNo() {
+      yesSize += 10;
+      const yesBtn = document.getElementById("yesBtn");
+      yesBtn.style.fontSize = yesSize + "px";
+      yesBtn.style.padding = (yesSize / 1.5) + "px";
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <h1>YAY!!! See you in the 14th </h1>
+        <p class="final-text">Baka naman pasayin naman maging matamis yung valentines natin noh? </p>
+        <img src="images/yes.jpg" class="final-img">
+      `;
+    }
+  </script>
+
+</body>
+</html>
